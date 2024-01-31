@@ -8,7 +8,8 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser'
 
 const PORT = process.env.PORT || 7000
-mongoose.connect(process.env.MONGODB_CONNEXTION_STRING as string);
+
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
 
 const app = express();
 app.use(cookieParser());
