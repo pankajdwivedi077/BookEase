@@ -5,7 +5,8 @@ import mongoose from 'mongoose';
 import userRoutes from './routes/users';
 import authRoutes from './routes/auth';
 import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser'
+import path from 'path';
+import bodyParser from 'body-parser';
 
 const PORT = process.env.PORT || 7000
 
@@ -20,6 +21,8 @@ app.use(cors({
     credentials: true,
 }));
 app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
